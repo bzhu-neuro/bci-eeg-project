@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+desktop.ini
+
+# Downloaded EEG data — large, and re-downloadable via mne.datasets.eegbci,
+# so it should never be committed to the repo. MNE typically caches this
+# under ~/mne_data by default, outside this repo, but excluding a local
+# data/ folder here too in case you point the download here instead.
+data/
+*.edf
+

@@ -1,0 +1,36 @@
+name: Tests
+
+# NOTE: this currently only runs tests/test_constants.py, which does NOT
+# require MNE-Python. The MNE-dependent modules have no automated tests
+# yet (see docs/lab_notebook.md) — installing MNE in CI is possible but
+# adds real time/complexity (heavy dependencies) that wasn't worth taking
+# on before the pipeline itself was even confirmed working locally.
+# Revisit this once Phase 1 is verified and you've added tests using
+# MNE's synthetic Raw objects.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install minimal test dependencies
+        run: |
+          pip install pytest
+
+      - name: Run non-MNE tests
+        env:
+          PYTHONPATH: src
+        run: |
+          pytest tests/test_constants.py -v
