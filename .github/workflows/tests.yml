@@ -33,4 +33,4 @@ jobs:
         env:
           PYTHONPATH: src
         run: |
-          pytest tests/test_constants.py -v
+          pytest tests/ -v

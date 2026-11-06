@@ -18,3 +18,25 @@ preprocessing and simple data loading.
 
 **Next step:** Plot the data in the time-frequency domain
 and start part 2.
+
+##
+
+Day 1: 2026-11-05
+
+**Goal today:** Finish stage 1 by doing the plotting
+exercise.
+
+**What I did:** Used all of the previous source code
+(data_loading, constants, etc), and plotted out the
+time-frequency plot.
+
+**Result / observation:** I see more signal in C3 for
+the left side and more signal for C4 in the right side.
+Though, you can clearly still see the signals on both
+sides.
+
+**Problem or surprise (if any):** Had to add this "eog" 
+term in the extract_left_right code. Also had to swap
+baseline from erds analysis to epoching.
+
+**Next step:** Stage phase 2.

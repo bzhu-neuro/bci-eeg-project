@@ -1,7 +1,7 @@
-from constants import ERDS_FREQ_MIN, ERDS_FREQ_MAX, ERDS_FREQ_STEP
+from bci_eeg.constants import ERDS_FREQ_MIN, ERDS_FREQ_MAX, ERDS_FREQ_STEP, BASELINE_WINDOW
 import numpy as np
 
-def compute_erds_power(epochs, channel_name, baseline):
+def compute_erds_power(epochs, channel_name, baselines = BASELINE_WINDOW):
     """
     Compute a baseline-corrected (percent change) time-frequency power map
     for a single channel, across the mu/beta range.
@@ -13,10 +13,10 @@ def compute_erds_power(epochs, channel_name, baseline):
         method="multitaper", 
         freqs=freqs, 
         n_cycles=n_cycles, 
-        return_itc=False
+        return_itc=False,
         average=True,
         decim=2,
         use_fft = True
     )
-    power.apply_baseline(baseline=baseline, mode='percent')
+    power.apply_baseline(baseline=baselines, mode='percent')
     return power
