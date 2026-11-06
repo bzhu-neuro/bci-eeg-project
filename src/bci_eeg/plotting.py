@@ -15,11 +15,11 @@ def plot_erds_grid(epochs, channels, save_path, conditions=("left", "right")):
         condition_epoch = epochs[condition]
         for column, channel in enumerate(channels):
             axis = ax[row, column]
-            power = compute_erds_power(condition_epoch, channel, baseline=None)
-            power.plot(axes = axis, colorbar=(column == len(channels)-1))
+            power = compute_erds_power(condition_epoch, channel)
+            power.plot([0], axes = axis, show=False, mode=None, colorbar=(column == len(channels)-1))
             axis.set_title(condition + " imagery -- " + channel)
             axis.set_xlabel("Time (s)")
             axis.set_ylabel("Frequency (Hz)")
 
-            fig.savefig(save_path, dpi=140)
+    fig.savefig(save_path, dpi=140)
             

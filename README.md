@@ -10,7 +10,7 @@ real human EEG during motor imagery.
 
 ## Project roadmap
 
-- [ ] **Phase 1 (Fundamentals):** MNE-Python fundamentals, load EEGMMIDB,
+- [x] **Phase 1 (Fundamentals):** MNE-Python fundamentals, load EEGMMIDB,
       reproduce the classic contralateral mu/beta ERD/ERS pattern.
 - [ ] **Phase 2 (Aim 1):** Baseline band-power motor-imagery classifier.
 - [ ] **Phase 3 (Aim 2):** Phase-locking value (PLV) synchrony features,
@@ -26,9 +26,13 @@ real human EEG during motor imagery.
 bci-eeg-project/
 ├── src/bci_eeg/
 │   ├── constants.py       # Run mappings, frequency bands, channels of interest
-│   └── 
+│   ├── data_loading.py
+│   ├── epoching.py
+│   ├── erds_analysis.py
+│   ├── plotting.py
+│   └── preprocessing.py
 ├── scripts/
-│   └── 
+│   └── run_phase1_explore.py
 ├── tests/
 │   └── 
 ├── notebooks/
@@ -51,10 +55,14 @@ pip install -e .
 
 ```bash
 # Run Phase 1: load subject 1, preprocess, plot ERD/ERS grid
+python .\scripts\run_phase1_explore.py
 
 # Run the tests that don't require MNE
 pytest tests/ -v
 ```
+## Result
+![](results/figures/phase1_left_right_C3_C4_channels.png)
+
 
 ## Background
 

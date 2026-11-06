@@ -11,7 +11,7 @@ def extract_left_right_epochs(raw, tmin, tmax):
     MNE's typical alphabetical assignment behavior, T0->1, T1->2, T2->3).
     """
     events, event_id = events_from_annotations(raw)
-    picks = pick_types(raw.info, meg=False, eeg=True, stim=False, ecg=False, exclude="bads")
-    epochs = Epochs(raw, events=events, event_id=event_id, tmin=tmin, tmax=tmax, picks=picks, baseline=None preload=True)
+    picks = pick_types(raw.info, meg=False, eeg=True, stim=False, eog=False, exclude="bads")
+    epochs = Epochs(raw, events=events, event_id=dict(left = 2, right = 3), tmin=tmin, tmax=tmax, picks=picks, baseline=None, preload=True)
     
     return epochs
