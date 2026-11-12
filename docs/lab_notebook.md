@@ -40,3 +40,19 @@ term in the extract_left_right code. Also had to swap
 baseline from erds analysis to epoching.
 
 **Next step:** Stage phase 2.
+
+##
+
+Day 2: 2026-11-11
+
+**Goal today:** To Start Stage 2. Create a function that
+makes up data like the EEG database.
+
+**What I did:** Using a random seed, I created a function
+that synthesized data and ran tests to check if it works.
+
+**Result / observation:** N/A
+
+**Problem or surprise (if any):** N/A
+
+**Next step:** Start making a filter.
